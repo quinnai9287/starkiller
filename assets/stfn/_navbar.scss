@@ -1,0 +1,59 @@
+.navbar-light.bg-light {
+  background-color: $bg--navbar;
+}
+
+.navbar-brand {
+  font-size: 1rem;
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.navbar-toggler{
+  border: none;
+  padding: 0.5rem 0;
+}
+
+
+.navbar-nav .nav-link {
+  color: $cyber-grey;
+  // text-shadow: 1px 1px 10px cyan;
+  &:hover {
+    // color: $cyber-powder-purple;
+    // text-shadow: 1px 1px 10px $cyber-powder-purple;
+  }
+}
+
+
+.light-mode .navbar-nav .nav-link{
+  color: #555;
+  text-shadow: none;
+  font-weight: bold;
+  &:hover {
+    color: #555;
+    text-shadow: none;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color:  $cyber-grey;
+}
+
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-family: 'Dosis', sans-serif;
+  cursor: pointer;
+
+
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    margin: 1rem 2rem;
+  }
+}
+
+
+.light-mode .nav-link{
+  color: #555;
+}

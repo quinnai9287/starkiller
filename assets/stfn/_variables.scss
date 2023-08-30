@@ -1,0 +1,45 @@
+$bg--navbar: transparent !default;
+
+$yellow: rgb(245, 230, 99);
+$sky_blue: rgba(168, 218, 220, 1);
+$blue: #3c52e0;
+$dark: #1a1a1a;
+$white: #fff;
+$red: #ff4d4e;
+$light_red: rgba(255, 77, 78, 0.2);
+$brown: rgb(182, 84, 139);
+$dark_01: hsla(0, 0%, 100%, 0.1);
+$light_grey: #f0f0f0;
+$grey: #e0e0e0;
+$dark_grey: rgba(53, 53, 59, 0.7);
+$green: #00b385;
+$light_green: rgba(0, 179, 133, 0.2);
+$hero-gradient: linear-gradient(49.94deg, #2afadf -20.11%, #4c83ff 82.22%);
+
+$fast: 0.15s;
+
+//
+$grid-breakpoints-xs: 0;
+$grid-breakpoints-sm: 576px;
+$grid-breakpoints-md: 768px;
+$grid-breakpoints-lg: 1024px;
+$grid-breakpoints-xl: 1200px;
+$grid-breakpoints-xxl: 1440px;
+
+//
+$section-title-font-size: 2rem !default;
+$section-title-lg-font-size: 2.5rem !default;
+$section-subtitle-font-size: 1.25rem !default;
+$section-subtitle-lg-font-size: 1.875rem !default;
+$section-text-font-size: 0.875rem !default;
+$section-text-lg-font-size: 1rem !default;
+$section-title-color: #1c1c1c !default;
+
+//cyberpunk color palette
+$cyber-black: #070305 !default;
+$cyber-grey: #c7c7c7 !default;
+$cyber-purple: #5f2746 !default;
+$cyber-light-purple: #b25e9a !default;
+$cyber-semi-purple: #94396e !default;
+$cyber-powder-purple: #cf9bc3 !default;
+$cyber-powder-cyan: #6b9099 !default;

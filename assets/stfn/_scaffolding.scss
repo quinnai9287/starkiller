@@ -1,0 +1,111 @@
+/* scaffoling.scss */
+body{
+  transition: all .25s ease-out;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  &.light-mode{
+  	background-color: #fff;
+    color: $cyber-black;
+
+    a{
+      color: $cyber-black;
+    }
+
+  }
+}
+
+
+
+#__nuxt,
+#__layout,
+.v-layout{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  color: $cyber-grey;
+}
+
+
+// .v-section{
+//   min-height: 100vh;
+//   height:100vh;
+//   position: relative;
+// }
+// .v-section .row{
+//   height: 100%;
+
+//   >div{
+//     height: 100%;
+//   }
+// }
+
+.section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  &.fullscreen {
+    min-height: 100vh;
+  }
+  &.second {
+    // background-color: rgba(0,0,0,0.25);
+    //background: rgb(0,0,0);
+    // background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 100%);
+  }
+  &.third {
+    // background-color: rgba(0,0,0,0.25);
+    //background: rgb(0,0,0);
+    //background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,1) 100%);
+  }
+}
+.section-title {
+  font-size: 1.5rem;
+  font-family: 'Noto Serif', serif;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+
+  .text-large {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.875rem;
+  }
+}
+
+.section-content {
+  // backdrop-filter: blur(7px);
+}
+
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: $cyber-grey;
+  background-color: transparent;
+}
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none
+}
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+  border-color: $cyber-grey;
+}
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+  color: #fff;
+  background-color: transparent;
+  border-color: inherit;
+}
