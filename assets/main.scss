@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Fredericka+the+Great&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,,800,900');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Podkova:wght@400;500;600;700;800&family=Prata&display=swap');
 // @import '~bootstrap/scss/functions.scss';
 // @import '@/assets/bs_variables';
 // @import '~bootstrap/scss/bootstrap.scss';
 // @import '@/assets/stfn/root.scss';
 
-@import '@/assets/stfn/transitions';
-@import '@/assets/stfn/navbar';
-@import '@/assets/stfn/fonts';
-@import '@/assets/stfn/scaffolding';
-@import '@/assets/stfn/utilities';
+// @import '@/assets/stfn/transitions';
+// @import '@/assets/stfn/navbar';
+// @import '@/assets/stfn/fonts';
+// @import '@/assets/stfn/scaffolding';
+// @import '@/assets/stfn/utilities';
 
+@import 'normalize';
+@import 'root';
+@import 'stfn/fonts';
+@import 'stfn/scaffolding';

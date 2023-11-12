@@ -26,31 +26,30 @@
   </div>
 </template>
 
-<script>
-export default {
+<script setup>
+definePageMeta({
   name: 'KeyView',
-  data(){
-    return {
-      dynamicHeight: 'auto',
-    }
-  },
-  beforeMount() {
-    window.addEventListener('resize', this.onResize)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.onResize)
-  },
-  mounted(){
-    this.$nextTick(()=>{
-      this.onResize()
-    })
-  },
-  methods:{
-    onResize(){
-      this.dynamicHeight = `${window.innerHeight}px`
-    }
-  }
-}
+});
+
+const dynamicHeight = ref('auto');
+
+const onResize = () => {
+  dynamicHeight.value = `${window.innerHeight}px`;
+};
+
+onBeforeMount(() => {
+  window.addEventListener('resize', onResize);
+});
+
+onBeforeDestroy(() => {
+  window.removeEventListener('resize', onResize);
+});
+
+onMounted(() => {
+  nextTick(() => {
+    onResize();
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -84,8 +83,6 @@ export default {
   margin-bottom: 2rem;
 }
 
-
-
 .noise {
   cursor: pointer;
   font-size: 0.875rem;
@@ -104,7 +101,7 @@ export default {
     animation-iteration-count: infinite;
     position: relative;
     animation-duration: 0.2s;
-    animation-delay: .5s;
+    animation-delay: 0.5s;
     z-index: 2;
   }
   &::before,
@@ -119,26 +116,26 @@ export default {
     animation-duration: 0.2s;
     animation-iteration-count: infinite;
     animation-name: flash-left;
-    animation-delay: .5s;
+    animation-delay: 0.5s;
   }
   &::before {
     top: -4px;
     left: 0px;
     display: flex;
     align-items: flex-start;
-   // height: 61%;
+    // height: 61%;
   }
   &::after {
     bottom: -3px;
     display: flex;
     align-items: flex-end;
     left: -1px;
-   // height: 87%;
+    // height: 87%;
   }
 }
 
 .light-mode .noise {
-  span{ 
+  span {
     animation: none;
   }
   &::before,
@@ -222,25 +219,34 @@ export default {
   margin-bottom: 2rem;
 }
 
-.light-mode .neon{
+.light-mode .neon {
   color: #555;
-  text-shadow: 0 0 5vw #f7f7f7, 0 0 5vw #f7f7f7, 0 0 5vw #f7f7f7,
-    0 0 5vw #f7f7f7, 0 0 0.4vw $cyber-grey, 0.5vw 0.5vw 0.1vw $cyber-grey;
+  text-shadow:
+    0 0 5vw #f7f7f7,
+    0 0 5vw #f7f7f7,
+    0 0 5vw #f7f7f7,
+    0 0 5vw #f7f7f7,
+    0 0 0.4vw $cyber-grey,
+    0.5vw 0.5vw 0.1vw $cyber-grey;
   animation: none;
 }
 
-.neon{
+.neon {
   // color: $cyber-grey;
   // color: #b874a4;
-  text-shadow: 0 0 5vw #94396e, 0 0 5vw #94396e, 0 0 5vw #94396e,
-    0 0 5vw #94396e, 0 0 0.4vw #5f2746, 0.5vw 0.5vw 0.1vw #5f2746;
-  animation: neon 2s ease-out infinite .1s;
-  -moz-animation: neon 2s ease-out infinite .1s;
-  -webkit-animation: neon 2s ease-out infinite .1s;
+  text-shadow:
+    0 0 5vw #94396e,
+    0 0 5vw #94396e,
+    0 0 5vw #94396e,
+    0 0 5vw #94396e,
+    0 0 0.4vw #5f2746,
+    0.5vw 0.5vw 0.1vw #5f2746;
+  animation: neon 2s ease-out infinite 0.1s;
+  -moz-animation: neon 2s ease-out infinite 0.1s;
+  -webkit-animation: neon 2s ease-out infinite 0.1s;
 }
 
 @media screen and (min-width: 768px) {
-
   .neon {
     font-size: 6rem;
     line-height: 6rem;
@@ -251,11 +257,9 @@ export default {
     transform: scale(1.5);
     margin-bottom: 1.75rem;
   }
-
 }
 
 @media screen and (min-width: 992px) {
-
   @keyframes flash-left {
     0% {
       transform: translateX(4px);
@@ -333,13 +337,23 @@ export default {
 @keyframes neon {
   0%,
   100% {
-    text-shadow: 0 0 1vw #94396e, 0 0 3vw #94396e, 0 0 10vw #94396e,
-      0 0 10vw #94396e, 0 0 0.4vw #5f2746, 0.5vw 0.5vw 0.1vw #5f2746;
+    text-shadow:
+      0 0 1vw #94396e,
+      0 0 3vw #94396e,
+      0 0 10vw #94396e,
+      0 0 10vw #94396e,
+      0 0 0.4vw #5f2746,
+      0.5vw 0.5vw 0.1vw #5f2746;
     color: #b874a4;
   }
   50% {
-    text-shadow: 0 0 0.5vw #b25e9a, 0 0 1.5vw #b25e9a, 0 0 5vw #b25e9a,
-      0 0 5vw #b25e9a, 0 0 0.2vw #5f2746, 0.5vw 0.5vw 0.1vw #5f2746;
+    text-shadow:
+      0 0 0.5vw #b25e9a,
+      0 0 1.5vw #b25e9a,
+      0 0 5vw #b25e9a,
+      0 0 5vw #b25e9a,
+      0 0 0.2vw #5f2746,
+      0.5vw 0.5vw 0.1vw #5f2746;
     color: #ffa0e4;
   }
 }

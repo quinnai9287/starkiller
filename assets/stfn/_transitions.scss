@@ -1,16 +1,16 @@
 /* transitions.scss */
-.page-enter-active, .page-leave-active {
-  transition: opacity .5s;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
 }
-.page-enter, .page-leave-to {
+.page-enter,
+.page-leave-to {
   opacity: 0;
 }
 
-
-
-
-.loader-enter-active, .loader-leave-active {
-  transition: opacity .5s;
+.loader-enter-active,
+.loader-leave-active {
+  transition: opacity 0.5s;
 }
 .loader-leave-to {
   opacity: 0;

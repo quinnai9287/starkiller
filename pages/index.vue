@@ -1,89 +1,62 @@
 <template>
-  <main>
-    <KeyView />
-    <!-- <VSection>
-      <CardSlider :title="`CONCEPTS`" :data="concepts"/>
-    </VSection>
-    <div>
-      <div class="magic-line-horizon">
-        <SVGIconMagicLine :page-y-offset="pageYOffset"/>
+  <div>
+    <Navigator id="menu" :navigator="navigator" :active-section="getActiveSection()" />
+    <full-page id="fullpage" ref="fullpage" :options="options">
+      <div v-for="scene in navigator" :key="scene.label" class="section">
+        <SectionScene :label="scene.labelTxt">
+          <component :is="scene.component" />
+        </SectionScene>
       </div>
-    </div>
-    <VSection>
-      <CardSlider :title="`DIARY/LOGS`" :data="diaryLogs" :align="`right`" />
-    </VSection>
-    <VSection 
-      :title="`AUTHOR`"
-      :align="`center`"
-    >
-     <Author />
-    </VSection> -->
-  </main>
+    </full-page>
+  </div>
 </template>
 
-<script>
-import ConceptsJson from '~/config/concepts.js'
-import DiaryLogJson from '~/config/diary-logs.js'
-export default {
-  name: 'IndexPage',
+<script setup>
+import SceneLanding from '@/components/Scene/Landing.vue';
+import SceneAuthor from '@/components/Scene/Author/index.vue';
+import ScenePort from '@/components/Scene/Port.vue';
+
+definePageMeta({
   layout: 'default',
-  data(){
-    return {
-      concepts: ConceptsJson,
-      diaryLogs: DiaryLogJson,
-      pageYOffset: 0,
-    }
+});
+
+const { $listen } = useNuxtApp();
+const fullpage = ref(null);
+
+$listen('page:slider', (anchor) => {
+  console.log('A user was registered!', anchor);
+  fullpage.value?.api.moveTo(anchor, 0);
+});
+
+const navigator = ref([
+  {
+    label: '^_^',
+    path: '/',
+    labelTxt: 'FRONTEND',
+    component: SceneLanding,
   },
-  beforeMount() {
-    window.addEventListener('scroll', this.handleScroll)
+  {
+    label: 'author',
+    path: '/author',
+    labelTxt: 'AUTHOR',
+    component: SceneAuthor,
   },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll)
+  {
+    label: 'port',
+    path: '/port',
+    labelTxt: 'PORT',
+    component: ScenePort,
   },
-  methods:{
-    handleScroll(){
-      this.pageYOffset = window.pageYOffset
-    }
-  }
-}
+]);
+
+const options = ref({
+  licenseKey: 'YOUR_KEY_HEERE',
+  menu: '#menu',
+  anchors: navigator.value.map((link) => link.label),
+  verticalCentered: false,
+});
+
+const getActiveSection = () => {
+  return fullpage.value?.api.getActiveSection().anchor;
+};
 </script>
-
-<style lang="scss" scoped>
-
-.magic-line-horizon{
-  position: absolute;
-  width: 80%;
-  height: 1400px;
-  left:50%;
-  transform: translate(-50%,-50%);
-}
-
-.magic-line{
-  position: absolute;
-  top:0;
-  width: 50%;
-  height: 100%;
-
-  &.flip{
-    right:0;
-  }
-}
-
-.card {
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid $cyber-powder-purple;
-  background-color: rgba(0, 0, 0, 0.75);
-  margin-bottom: 1.875rem;
-  &:before {
-    content: '';
-    display: block;
-    padding-bottom: 65%;
-  }
-  &.narrow {
-    &:before {
-      padding-bottom: 63%;
-    }
-  }
-}
-</style>
