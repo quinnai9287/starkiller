@@ -7,7 +7,7 @@
 
 <style>
 .logo {
-  @apply p-4;
+  @apply p-4 text-4xl;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
   white-space: nowrap;

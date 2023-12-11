@@ -36,7 +36,7 @@ const activities = [
   },
   {
     title: 'Front-end Developer',
-    company: 'Freelancing w/ [Alion Tech.], [Blockcode Inc.]',
+    company: 'Freelancing w/ Alion Tech., Blockcode Inc.',
     timestamp: '2020-01',
     period: '2020年1月 - 2022年2月・2 年 2 個月',
   },

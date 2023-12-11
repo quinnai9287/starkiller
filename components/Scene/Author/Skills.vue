@@ -17,7 +17,11 @@ const items = ref<Array<Item>>([
   { type: 'success', label: 'Vue.js' },
   { type: 'success', label: 'Nuxt.js' },
   { type: 'success', label: 'Typescript' },
+  { type: '', label: 'React.js' },
+  { type: '', label: 'React-Native' },
   { type: '', label: 'Tailwind CSS' },
+  { type: 'warning', label: 'Three.js' },
+  { type: 'warning', label: 'Git' },
   { type: '', label: 'Photoshop' },
   { type: 'warning', label: 'Illustrator' },
 ]);

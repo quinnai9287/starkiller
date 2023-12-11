@@ -4,8 +4,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #111;
   font-family: 'Raleway', san-serif;
+  overflow: hidden;
 
   &.light-mode {
     background-color: #fff;

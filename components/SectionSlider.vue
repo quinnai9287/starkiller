@@ -1,18 +1,18 @@
 <template>
   <div class="w-full h-full">
-    <div v-for="(p, i) in projects" :key="p.name" class="slide" :data-anchor="`slide${i}`">
+    <!-- <div class="slide">
       <div class="slide-inner">
         <div class="slide-content">
           <h2>
-            <span class="text-6xl font-bold">{{ p.name }}</span>
+            <span class="text-6xl font-bold">{{ data.name }}</span>
           </h2>
           <div class="tags-box font-Podkova">
-            <span v-for="tag in p.tags" :key="tag" class="tag">
+            <span v-for="tag in data.tags" :key="tag" class="tag">
               {{ tag }}
             </span>
           </div>
-          <div v-if="p.sns" class="sns-box font-Podkova">
-            <a v-for="(s, idx) in p.sns" :key="idx" :href="s.url" class="link" target="_blank">
+          <div v-if="data.sns" class="sns-box font-Podkova">
+            <a v-for="(s, idx) in data.sns" :key="idx" :href="s.url" class="link" target="_blank">
               <el-icon v-if="s.elIcon" :size="20" :color="`#fff`">
                 <component :is="s.elIcon" />
               </el-icon>
@@ -21,19 +21,31 @@
               </span>
             </a>
           </div>
-          <ul v-if="p.des" class="title-list font-Podkova">
-            <li v-for="d in p.des" :key="d.txt">{{ d.txt }}</li>
+          <ul v-if="data.des" class="title-list font-Podkova">
+            <li v-for="d in data.des" :key="d.txt">{{ d.txt }}</li>
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
+    <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useCounterStore } from '~/stores/counter.js';
-const counterStore = useCounterStore();
-const projects = counterStore.projects;
+const props = defineProps<{
+  data: {
+    name: string;
+    tags: string[];
+    sns: {
+      url: string;
+      elIcon?: any;
+      iconComp?: any;
+    }[];
+    des: {
+      txt: string;
+    }[];
+  };
+}>();
 </script>
 
 <style lang="scss" scoped>

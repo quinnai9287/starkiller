@@ -1,10 +1,10 @@
 <template>
-  <div class="flex h-[75%]">
+  <div class="flex h-[80%]">
     <div>
       <div class="profile-image w-[100px] h-[100px] rounded-full overflow-hidden">
         <img src="/me.jpg" class="w-full h-full" alt="profile image" />
       </div>
-      <h1 class="font-Podkova leading-none mb-8">AUTHOR</h1>
+      <h2 class="font-Podkova leading-none mb-8 mt-6">AUTHOR</h2>
       <h2 class="massive-title">STEPHANI<br />YANG</h2>
       <ul class="title-list font-Podkova">
         <li class="now">Front-end Developer</li>

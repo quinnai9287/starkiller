@@ -42,6 +42,7 @@ const props = defineProps<{
   justify-content: flex-end;
   align-items: flex-end;
   user-select: none;
+  text-transform: uppercase;
 }
 
 .section-label-text {

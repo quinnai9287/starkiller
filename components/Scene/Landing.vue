@@ -25,7 +25,7 @@ const handleMouseMove = (e) => {
 };
 
 onMounted(() => {
-  document.addEventListener('mousemove', handleMouseMove);
+  // document.addEventListener('mousemove', handleMouseMove);
   //   $gsap.to('.classname', {
   //     scrollTrigger: {
   //       trigger: '.classname',

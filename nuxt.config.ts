@@ -1,20 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   app: {
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'STFN | Portfolio',
+      title: 'ST/FND.',
       meta: [
-        { name: 'Title', content: 'STFN | Portfolio' },
+        { name: 'Title', content: 'ST/FND.' },
         { name: 'description', content: 'My amazing site.' },
       ],
       bodyAttrs: {
         class: 'test',
       },
     },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
-  devtools: { enabled: true },
+  // devtools: { enabled: true },
   css: ['@/assets/vendor-style.css', '@/assets/main.scss'],
   postcss: {
     plugins: {
@@ -31,5 +33,8 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ['@fullpage/nuxt-fullpage', '@element-plus/nuxt'],
+  modules: ['@fullpage/nuxt-fullpage', '@element-plus/nuxt', '@pinia/nuxt'],
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
 });
