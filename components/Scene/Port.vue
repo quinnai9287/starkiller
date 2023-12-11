@@ -77,3 +77,4 @@ const projects = counterStore.projects;
   }
 }
 </style>
+~/stores/projects.js

@@ -1,17 +1,17 @@
 <template>
   <div class="w-full h-full">
-    <!-- <div class="slide">
+    <div class="slide">
       <div class="slide-inner">
         <div class="slide-content">
           <h2>
-            <span class="text-6xl font-bold">{{ data.name }}</span>
+            <span class="text-6xl font-bold">{{ data?.name }}</span>
           </h2>
-          <div class="tags-box font-Podkova">
-            <span v-for="tag in data.tags" :key="tag" class="tag">
+          <div v-if="data?.tags" class="tags-box font-Podkova">
+            <span v-for="(tag, i) in data.tags" :key="i" class="tag">
               {{ tag }}
             </span>
           </div>
-          <div v-if="data.sns" class="sns-box font-Podkova">
+          <div v-if="data?.sns" class="sns-box font-Podkova">
             <a v-for="(s, idx) in data.sns" :key="idx" :href="s.url" class="link" target="_blank">
               <el-icon v-if="s.elIcon" :size="20" :color="`#fff`">
                 <component :is="s.elIcon" />
@@ -21,31 +21,32 @@
               </span>
             </a>
           </div>
-          <ul v-if="data.des" class="title-list font-Podkova">
+          <ul v-if="data?.des" class="title-list font-Podkova">
             <li v-for="d in data.des" :key="d.txt">{{ d.txt }}</li>
           </ul>
         </div>
+        <div class="device-box-container">
+          <DeviceBox :backgrounds="backgrounds" />
+        </div>
       </div>
-    </div> -->
+    </div>
     <slot />
   </div>
 </template>
 
-<script setup lang="ts">
-const props = defineProps<{
+<script setup>
+const props = defineProps({
   data: {
-    name: string;
-    tags: string[];
-    sns: {
-      url: string;
-      elIcon?: any;
-      iconComp?: any;
-    }[];
-    des: {
-      txt: string;
-    }[];
-  };
-}>();
+    type: Object,
+  },
+  backgrounds: {
+    type: Object,
+  },
+});
+
+const { data, backgrounds } = toRefs(props);
+
+console.log('[data]', data);
 </script>
 
 <style lang="scss" scoped>
@@ -53,7 +54,11 @@ const props = defineProps<{
   @apply flex justify-center items-center w-[100vw] h-[100vh];
 }
 .slide-content {
-  @apply flex flex-col w-[70%] h-[65%];
+  @apply flex flex-col w-[70%] h-[65%] relative z-50;
+}
+
+.device-box-container {
+  @apply absolute z-10;
 }
 
 .tags-box {

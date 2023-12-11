@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SectionSlider>
+    <SectionSlider :data="data">
       <div class="slide">678910</div>
     </SectionSlider>
   </div>
@@ -12,4 +12,5 @@ const props = defineProps({
     type: Object,
   },
 });
+const { data } = toRefs(props);
 </script>

@@ -14,13 +14,13 @@ const navigator = ref([
     labelTxt: 'FRONTEND',
     activeTxt: 'ST/FND.',
   },
-  {
-    type: 'page',
-    label: 'blog',
-    path: '/blog',
-    labelTxt: 'BLOG',
-    activeTxt: 'BLOG',
-  },
+  // {
+  //   type: 'page',
+  //   label: 'blog',
+  //   path: '/blog',
+  //   labelTxt: 'BLOG',
+  //   activeTxt: 'BLOG',
+  // },
   {
     type: 'page',
     label: 'portfolio',

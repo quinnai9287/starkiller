@@ -53,7 +53,7 @@ const onClickNavlink = (nav: any) => {
 
 <style scoped>
 header {
-  @apply fixed top-[4%] left-[2%] m-auto w-[120px] min-h-[100px] z-50;
+  @apply fixed top-[4%] left-[2%] m-auto w-[120px] min-h-[100px] z-[100];
   color: #444;
   background-color: rgba(45, 45, 45, 0.5);
 }
