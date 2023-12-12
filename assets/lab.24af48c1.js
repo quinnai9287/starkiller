@@ -1,0 +1,1 @@
+import{d as a,r as t,t as o,v as s,a3 as n}from"./entry.f04e0043.js";const p=a({__name:"lab",setup(r){return t("Some data to pass"),(e,l)=>(o(),s("main",null,[n(e.$slots,"default")]))}});export{p as default};
