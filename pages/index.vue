@@ -1,6 +1,6 @@
 <template>
   <div>
-    <full-page id="fullpage" ref="fullpage" :options="options">
+    <full-page id="fullpage" ref="fullpage" class="full-page" :options="options">
       <div class="section">
         <SectionScene :label="`FRONTEND`">
           <SceneLanding />
@@ -14,13 +14,21 @@
           <ScenePort />
         </SectionScene> -->
       </div>
+      <div class="section">
+        <SectionScene :bg="FashionBg" :parallax="true">
+          <SceneSideProject />
+        </SectionScene>
+      </div>
     </full-page>
   </div>
 </template>
 
 <script setup>
 import SceneLanding from '@/components/Scene/Landing.vue';
+import SceneSideProject from '@/components/Scene/SideProject/index.vue';
 import SceneAuthor from '@/components/Scene/Author/index.vue';
+
+import FashionBg from '@/public/fashion.jpg';
 // import ScenePort from '@/components/Scene/Port.vue';
 
 definePageMeta({
@@ -37,6 +45,6 @@ $listen('page:slider', (anchor) => {
 
 const options = ref({
   licenseKey: 'YOUR_KEY_HEERE',
-  menu: '#menu',
+  anchors: ['#^_^', 'author', 'aprilbabygirl'],
 });
 </script>

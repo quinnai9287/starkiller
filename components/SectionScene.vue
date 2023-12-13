@@ -1,5 +1,5 @@
 <template>
-  <div class="section-content">
+  <div class="section-content" :class="{ parallax }" :style="{ backgroundImage: `url(${bg})` }">
     <slot />
     <div class="section-label" :data-text="props.label">
       <div class="section-label-text" :data-text="props.label">
@@ -12,6 +12,8 @@
 <script setup lang="ts">
 const props = defineProps<{
   label: string;
+  bg?: string;
+  parallax?: boolean;
 }>();
 </script>
 
@@ -19,13 +21,25 @@ const props = defineProps<{
 .section-content {
   width: 100vw;
   height: 100vh;
-  background-color: #111;
+  // background-color: #111;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
+  z-index: 2;
+  background-position: center;
+  background-size: 100% auto;
+  transition: background-position 0.5s linear;
+
+  &.parallax {
+    background-position: 0 40%;
+  }
+
+  .active & {
+    background-position: 0 50% !important;
+  }
 }
 
 .section-label {

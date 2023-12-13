@@ -5,13 +5,16 @@
     </div>
     <ul class="list">
       <li v-for="nav in props.navigator" :key="nav.label">
-        <div class="nav-link" :class="{ active: props.activeSection === nav.label }" @click="onClickNavlink(nav)">
+        <nuxt-link class="link" :class="{ active: route.path === nav.path }" :to="nav.path">
           {{ nav.label }}
-        </div>
+        </nuxt-link>
       </li>
       <li>
         <div class="credit-links">
-          <a class="flex justify-center">
+          <a
+            class="flex justify-center"
+            href="mailto:keira0930@gmail.com?subject=Hey Steph! I would like to know more about make a website!&body=Hey Steph! I would like to know more about make a website!"
+          >
             <el-icon :size="14" :color="`#fff`">
               <Message />
             </el-icon>
@@ -37,18 +40,12 @@ const props = defineProps<{
   }[];
 }>();
 
-const { $event, $router } = useNuxtApp();
 const route = useRoute();
 
 const activePage = computed(() => {
   const activeNav = props.navigator.find((nav) => nav.path === `/${String(route.name)}`);
   return activeNav?.activeTxt || 'ST/FND.';
 });
-
-const onClickNavlink = (nav: any) => {
-  if (nav.type === 'page') return $router.push(nav.path);
-  $event('page:slider', nav.label);
-};
 </script>
 
 <style scoped>
@@ -76,11 +73,7 @@ header {
   }
 }
 
-.nav-link {
-  color: #fff;
-  cursor: pointer;
-  user-select: none;
-
+.link {
   &.active {
     color: #6cdbd2;
   }

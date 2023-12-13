@@ -1,8 +1,6 @@
 <template>
   <div>
-    <SectionSlider :data="data" :backgrounds="backgrounds">
-      <div class="slide">7897987</div>
-    </SectionSlider>
+    <SectionSlider :data="data" :backgrounds="backgrounds" />
   </div>
 </template>
 

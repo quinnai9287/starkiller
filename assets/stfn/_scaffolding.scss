@@ -35,8 +35,18 @@ main {
   align-items: center;
 }
 
-a {
-  color: $cyber-grey;
+a, .link {
+  color: white;
+  cursor: pointer;
+  transition: .2s ease-out;
+
+  &:hover{
+    color:#77f5ea;
+  }
+
+  &.underline {
+    text-underline-offset: 0.25rem;
+  }
 }
 
 // .v-section{
@@ -51,6 +61,10 @@ a {
 //     height: 100%;
 //   }
 // }
+
+.full-page{
+  z-index: 2;
+}
 
 .section {
   position: relative;

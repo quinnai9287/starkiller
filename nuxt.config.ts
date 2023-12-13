@@ -13,8 +13,13 @@ export default defineNuxtConfig({
       bodyAttrs: {
         class: 'test',
       },
+      script: [
+        {
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r77/three.min.js',
+        },
+      ],
     },
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
   // devtools: { enabled: true },
   css: ['@/assets/vendor-style.css', '@/assets/main.scss'],

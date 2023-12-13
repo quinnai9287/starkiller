@@ -3,8 +3,8 @@
     <div class="slide">
       <div class="slide-inner">
         <div class="slide-content">
-          <h2>
-            <span class="text-6xl font-bold">{{ data?.name }}</span>
+          <h2 class="mb-2">
+            <span class="text-6xl font-bold whitespace-pre-line">{{ data?.name }}</span>
           </h2>
           <div v-if="data?.tags" class="tags-box font-Podkova">
             <span v-for="(tag, i) in data.tags" :key="i" class="tag">
@@ -22,8 +22,12 @@
             </a>
           </div>
           <ul v-if="data?.des" class="title-list font-Podkova">
-            <li v-for="d in data.des" :key="d.txt">{{ d.txt }}</li>
+            <li v-for="d in data.des" :key="d.txt">
+              <a v-if="d.url" :href="d.url" target="_blank">{{ d.txt }}</a>
+              <span v-else>{{ d.txt }}</span>
+            </li>
           </ul>
+          <TagBox :tags="data?.devTags" />
         </div>
         <div class="device-box-container">
           <DeviceBox :backgrounds="backgrounds" />
@@ -78,7 +82,7 @@ console.log('[data]', data);
 }
 
 .title-list {
-  @apply mt-4;
+  @apply mt-4 mb-6;
   list-style: none;
 
   li {

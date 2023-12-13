@@ -1,6 +1,7 @@
 <template>
   <main>
     <Navigator id="menu" :navigator="navigator" />
+    <CanvasAsh />
     <slot />
   </main>
 </template>
