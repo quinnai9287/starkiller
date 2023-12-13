@@ -1,0 +1,120 @@
+.classname {
+    height: 100px;
+  }
+  
+  .massive-title {
+    
+    margin: 0;
+    font-size: 80px;
+    position: relative;
+    transform: translateY(-15%);
+    text-align: left;
+    line-height: 0.75;
+    letter-spacing: -4px;
+    font-weight: bold;
+    color: #ccc;
+  }
+  
+  .massive-title-text-clip {
+    color: transparent;
+    font-size: 150px;
+    background: url('https://phandroid.s3.amazonaws.com/wp-content/uploads/2014/05/rainbow-nebula.jpg') repeat;
+    background-position: 40% 50%;
+    -webkit-background-clip: text;
+    font-family: 'Podkova', san-serif;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 4rem;
+    transform: translateY(25%);
+  }
+  
+  .main-button {
+    @apply py-4 px-6 rounded inline-flex items-center justify-center;
+    font-size: 18px;
+    font-weight: 600;
+    border: 1px solid #673ab7;
+    cursor: pointer;
+    // background-color: #673ab7;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+  
+    .icon {
+      @apply ml-1;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    &:hover {
+      .icon {
+        @apply ml-2;
+      }
+    }
+  }
+  
+  .shiney-btn {
+    // background: #5ebbb3;
+    color: #5ebbb3;
+    border: none;
+    border-radius: 50px;
+    border: 1px solid #5ebbb3;
+    transition: 0.4s;
+  }
+  
+  .shiney-btn:before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 25px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -65px;
+    transform: skewX(-45deg) translateX(0);
+    transition-delay: 0.5s;
+    transition: 0.6s;
+  }
+  
+  .shiney-btn:hover {
+    background-color: rgb(94 187 179 / 10%);
+    color: #cdfffb;
+    border-color: #cdfffb;
+  }
+  
+  .shiney-btn:focus,
+  .shiney-btn:active {
+    // background: #673ab7;
+    color: #fff;
+  }
+  
+  .shiney-btn:hover:before {
+    left: calc(100% + 20px);
+  }
+
+  @media screen and (max-width: 768px) {
+    .massive-title {
+      font-size: 60px;
+    }
+  
+    .massive-title-text-clip {
+      font-size: 100px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .massive-title {
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+  
+    .massive-title-text-clip {
+      font-size: 60px;
+      margin-bottom: 2rem;
+    }
+
+    .main-button {
+        @apply py-2 px-3;
+        font-size: 12px;
+    }
+    
+  }

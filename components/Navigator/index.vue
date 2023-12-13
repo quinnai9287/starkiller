@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="p-4">
+    <div class="p-2 md:p-2 lg:p-4">
       <div class="active-text">{{ activePage }}</div>
     </div>
     <ul class="list">
@@ -48,48 +48,6 @@ const activePage = computed(() => {
 });
 </script>
 
-<style scoped>
-header {
-  @apply fixed top-[4%] left-[2%] m-auto w-[120px] min-h-[100px] z-[100];
-  color: #444;
-  background-color: rgba(45, 45, 45, 0.5);
-}
-.credit-links {
-  @apply mt-auto py-1 flex justify-start;
-
-  > * {
-    cursor: pointer;
-    margin-right: 10px;
-  }
-}
-
-.list {
-  @apply grid grid-cols-1 divide-y h-full text-sm mb-2;
-  border-top: 1px solid #444;
-  font-family: 'Podkova', serif;
-
-  > li {
-    @apply py-2 px-5;
-  }
-}
-
-.link {
-  &.active {
-    color: #6cdbd2;
-  }
-}
-
-.active-text {
-  @apply p-4 text-4xl;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.5);
-  white-space: nowrap;
-  display: flex;
-  align-items: flex-end;
-  width: fit-content;
-  font-weight: 600;
-  /* font-family: 'Fredericka the Great', san-serif; */
-  letter-spacing: -1px;
-  /* font-family: 'Podkova', serif; */
-}
+<style lang="scss" scoped>
+@import './index.scss';
 </style>

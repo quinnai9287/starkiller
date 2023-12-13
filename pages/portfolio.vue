@@ -52,6 +52,6 @@ const projects = projectsStore.allProjects.map((project) => ({
 
 const options = ref({
   licenseKey: 'YOUR_KEY_HEERE',
-  anchors: projects.map((project) => project.key),
+  anchors: ['dmktz', 'fitzon', 'scanatic4fashion', 'nopartyforcaodong'],
 });
 </script>

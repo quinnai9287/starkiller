@@ -38,7 +38,7 @@ const { backgrounds } = toRefs(props);
 
 <style lang="scss" scoped>
 .device-box {
-  @apply flex justify-center items-center relative w-[100vw] h-[100vh];
+  @apply flex justify-center items-center relative w-[100vw] h-[35vh] lg:h-[100vh];
   transform: scale(0.95);
   opacity: 0.6;
 }
@@ -115,5 +115,11 @@ const { backgrounds } = toRefs(props);
   border-radius: $unit/14;
   left: 58%;
   transform: translate(-50%, 44%);
+}
+
+@media screen and (max-width: 768px) {
+  .device-box {
+    opacity: 1;
+  }
 }
 </style>

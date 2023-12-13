@@ -2,9 +2,12 @@
   <div class="w-full h-full">
     <div class="slide">
       <div class="slide-inner">
+        <div class="device-box-container">
+          <DeviceBox :backgrounds="backgrounds" />
+        </div>
         <div class="slide-content">
-          <h2 class="mb-2">
-            <span class="text-6xl font-bold whitespace-pre-line">{{ data?.name }}</span>
+          <h2 v-if="data?.name" class="mb-2">
+            <span class="text-2xl lg:text-6xl font-bold whitespace-pre-line">{{ data?.name }}</span>
           </h2>
           <div v-if="data?.tags" class="tags-box font-Podkova">
             <span v-for="(tag, i) in data.tags" :key="i" class="tag">
@@ -13,7 +16,7 @@
           </div>
           <div v-if="data?.sns" class="sns-box font-Podkova">
             <a v-for="(s, idx) in data.sns" :key="idx" :href="s.url" class="link" target="_blank">
-              <el-icon v-if="s.elIcon" :size="20" :color="`#fff`">
+              <el-icon v-if="s.elIcon" :color="`#fff`">
                 <component :is="s.elIcon" />
               </el-icon>
               <span v-if="s.iconComp">
@@ -28,9 +31,6 @@
             </li>
           </ul>
           <TagBox :tags="data?.devTags" />
-        </div>
-        <div class="device-box-container">
-          <DeviceBox :backgrounds="backgrounds" />
         </div>
       </div>
     </div>
@@ -49,16 +49,14 @@ const props = defineProps({
 });
 
 const { data, backgrounds } = toRefs(props);
-
-console.log('[data]', data);
 </script>
 
 <style lang="scss" scoped>
 .slide-inner {
-  @apply flex justify-center items-center w-[100vw] h-[100vh];
+  @apply flex flex-col justify-center items-center w-[100vw] h-[100vh] p-6;
 }
 .slide-content {
-  @apply flex flex-col w-[70%] h-[65%] relative z-50;
+  @apply flex flex-col mb-5 lg:mb-auto w-[90%] lg:w-[70%] lg:h-[65%] relative z-50;
 }
 
 .device-box-container {
@@ -66,7 +64,7 @@ console.log('[data]', data);
 }
 
 .tags-box {
-  @apply flex flex-wrap mt-2 max-w-[400px];
+  @apply flex flex-wrap mt-2 max-w-[400px] text-xs lg:text-base;
 
   .tag {
     @apply mr-2;
@@ -74,7 +72,7 @@ console.log('[data]', data);
 }
 
 .sns-box {
-  @apply flex flex-wrap my-4 max-w-[400px];
+  @apply flex flex-wrap my-2 lg:my-4 max-w-[400px] text-xs lg:text-base;
 
   .link {
     @apply mr-2;
@@ -82,19 +80,27 @@ console.log('[data]', data);
 }
 
 .title-list {
-  @apply mt-4 mb-6;
+  @apply mt-2 lg:mt-4 mb-3 lg:mb-6 text-sm lg:text-base leading-4 lg:leading-normal;
   list-style: none;
 
   li {
-    @apply mb-3;
+    @apply mb-2 lg:mb-3 pl-2 lg:pl-4;
 
     border-left: 5px solid #5ebbb3;
-    padding-left: 10px;
 
     &.now {
-      @apply text-2xl font-bold;
+      @apply text-base lg:text-2xl font-bold;
       border-color: #c76bff;
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .device-box-container {
+    @apply relative;
+    transform: scale(0.8);
+    left: -11%;
+    top: 8%;
   }
 }
 </style>

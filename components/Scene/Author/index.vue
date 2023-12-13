@@ -3,7 +3,7 @@
     <div class="flex justify-center items-center">
       <div class="left-info">
         <div class="profile-image w-[100px] h-[100px] rounded-full overflow-hidden">
-          <img src="/me.jpg" class="w-full h-full" alt="profile image" />
+          <img src="/me2.jpg" class="w-full h-full" alt="profile image" />
         </div>
         <h2 class="font-Podkova leading-none mb-8 mt-6">AUTHOR</h2>
         <h2 class="massive-title">STEPHANI<br />YANG</h2>

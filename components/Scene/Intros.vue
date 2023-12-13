@@ -61,6 +61,8 @@ import sign from '@/assets/images/sign.png';
 .intros {
   @apply p-4 rounded-md text-base max-w-[450px] max-h-[660px] mx-4 leading-5;
   // border: 1px solid #444;
+
+  user-select: none;
   p {
     @apply mb-4;
   }

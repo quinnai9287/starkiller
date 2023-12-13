@@ -4,6 +4,9 @@
       <div ref="massiveTitle" class="massive-title-text-clip">Hey!,</div>
       <span>Shall we tailor <br />something interesting?</span>
     </h1>
+    <nuxt-link class="main-button shiney-btn" to="/portfolio">
+      Checkout Portfolio <el-icon class="icon"><Right /></el-icon>
+    </nuxt-link>
   </div>
 </template>
 
@@ -43,32 +46,5 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.classname {
-  height: 100px;
-}
-
-.massive-title {
-  margin: 0;
-  font-size: 80px;
-  position: relative;
-  transform: translateY(-15%);
-  text-align: left;
-  line-height: 0.75;
-  letter-spacing: -4px;
-  font-weight: bold;
-  color: #ccc;
-}
-
-.massive-title-text-clip {
-  color: transparent;
-  font-size: 150px;
-  background: url('https://phandroid.s3.amazonaws.com/wp-content/uploads/2014/05/rainbow-nebula.jpg') repeat;
-  background-position: 40% 50%;
-  -webkit-background-clip: text;
-  font-family: 'Podkova', san-serif;
-  line-height: 1;
-  position: relative;
-  margin-bottom: 4rem;
-  transform: translateY(25%);
-}
+@import './index.scss';
 </style>

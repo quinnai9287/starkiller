@@ -26,4 +26,10 @@ const { tags } = toRefs(props);
     border: 1px solid white;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .tag {
+    zoom: 0.8;
+  }
+}
 </style>

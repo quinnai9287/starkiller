@@ -6,10 +6,19 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'ST/FND.',
+      title: 'ST/FND. | Make your website attractive again',
       meta: [
-        { name: 'Title', content: 'ST/FND.' },
-        { name: 'description', content: 'My amazing site.' },
+        { name: 'Title', content: 'ST/FND. | Make your website attractive again' },
+        { name: 'description', content: '"If you want a beautiful and attractive website, I can help.' },
+        { hid: 'og:title', property: 'og:title', content: 'ST/FND. | Make your website attractive again' },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'If you want a beautiful and attractive website, I can help.',
+        },
+        { hid: 'og:image', property: 'og:image', content: 'https://example.com/image.jpg' },
+        { hid: 'og:url', property: 'og:url', content: 'https://quinnai9287.github.io/' },
+        { hid: 'og:type', property: 'og:type', content: 'website' },
       ],
       bodyAttrs: {
         class: 'test',

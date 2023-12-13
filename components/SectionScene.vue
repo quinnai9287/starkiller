@@ -65,7 +65,6 @@ const props = defineProps<{
   left: 0px;
   bottom: 0;
   right: 0;
-
   font-size: 150px;
   font-weight: 600;
   transform: rotate(-90deg);
@@ -105,6 +104,35 @@ const props = defineProps<{
     align-items: flex-end;
     opacity: 0.5;
     z-index: -1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-label {
+    width: 200px;
+    opacity: 0.5;
+  }
+
+  .section-label-text {
+    font-size: 75px;
+
+    &::before {
+      top: 58.5%;
+    }
+
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      right: 0;
+      color: #c76bff;
+      display: block;
+      overflow: hidden;
+      bottom: -4%;
+      display: flex;
+      align-items: flex-end;
+      opacity: 0.5;
+      z-index: -1;
+    }
   }
 }
 </style>

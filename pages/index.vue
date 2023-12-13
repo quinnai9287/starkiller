@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import SceneLanding from '@/components/Scene/Landing.vue';
+import SceneLanding from '@/components/Scene/Landing';
 import SceneSideProject from '@/components/Scene/SideProject/index.vue';
 import SceneAuthor from '@/components/Scene/Author/index.vue';
 
