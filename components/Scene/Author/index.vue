@@ -1,30 +1,37 @@
 <template>
-  <div class="flex h-[80%]">
-    <div>
-      <div class="profile-image w-[100px] h-[100px] rounded-full overflow-hidden">
-        <img src="/me.jpg" class="w-full h-full" alt="profile image" />
+  <div class="w-full h-full flex justify-center" @wheel="onWheel">
+    <div class="flex justify-center items-center">
+      <div class="left-info">
+        <div class="profile-image w-[100px] h-[100px] rounded-full overflow-hidden">
+          <img src="/me.jpg" class="w-full h-full" alt="profile image" />
+        </div>
+        <h2 class="font-Podkova leading-none mb-8 mt-6">AUTHOR</h2>
+        <h2 class="massive-title">STEPHANI<br />YANG</h2>
+        <ul class="title-list font-Podkova">
+          <li class="now">Front-end Developer</li>
+          <li>Former UI/UX Designer</li>
+          <li>Former Graphic Designer</li>
+        </ul>
+        <p class="font-Podkova text-xs mt-8">
+          Department of Information and Communication,<br />Yuan-Ze University, Taiwan
+        </p>
+        <Skills />
       </div>
-      <h2 class="font-Podkova leading-none mb-8 mt-6">AUTHOR</h2>
-      <h2 class="massive-title">STEPHANI<br />YANG</h2>
-      <ul class="title-list font-Podkova">
-        <li class="now">Front-end Developer</li>
-        <li>Former UI/UX Designer</li>
-        <li>Former Graphic Designer</li>
-      </ul>
-      <p class="font-Podkova text-xs mt-8">
-        Department of Information and Communication,<br />Yuan-Ze University, Taiwan
-      </p>
-      <Skills />
-    </div>
-    <div class="flex justify-center ml-10">
-      <Timeline />
+      <div class="flex justify-center ml-10">
+        <Timeline />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Timeline from './Timeline.vue';
-import Skills from './Skills.vue';
+import Timeline from './components/Timeline.vue';
+import Skills from './components/Skills.vue';
+
+const onWheel = (e: WheelEvent) => {
+  e.preventDefault;
+  console.log(e);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -45,11 +52,10 @@ import Skills from './Skills.vue';
   width: 70%;
 }
 
-.intros {
-  @apply p-4 rounded-md text-sm;
-  border: 1px solid #444;
+.slide {
+  @apply w-full h-full;
+  user-select: none;
 }
-
 .title-list {
   @apply mt-4;
   list-style: none;

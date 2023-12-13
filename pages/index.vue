@@ -15,6 +15,11 @@
         </SectionScene> -->
       </div>
       <div class="section">
+        <SectionScene :label="`Author`">
+          <SceneIntros />
+        </SectionScene>
+      </div>
+      <div class="section">
         <SectionScene :bg="FashionBg" :parallax="true">
           <SceneSideProject />
         </SectionScene>
@@ -45,6 +50,14 @@ $listen('page:slider', (anchor) => {
 
 const options = ref({
   licenseKey: 'YOUR_KEY_HEERE',
-  anchors: ['#^_^', 'author', 'aprilbabygirl'],
+  anchors: ['^_^', 'author', 'aboutme', 'aprilbabygirl'],
 });
 </script>
+
+<style lang="scss" scoped>
+.arrow-left,
+.arrow-right {
+  border: 1px solid #5ebbb3;
+  border-radius: 50%;
+}
+</style>

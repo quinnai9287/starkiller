@@ -1,9 +1,14 @@
 <template>
   <div class="skils-wrap">
     <h3 class="font-bold mb-4">SKILLS</h3>
-    <el-tag v-for="item in items" :key="item.label" class="mx-1" :type="item.type" effect="plain">
+    <div class="tags-container">
+      <span v-for="item in items" :key="item.label" class="tag">
+        {{ item.label }}
+      </span>
+    </div>
+    <!-- <el-tag v-for="item in items" :key="item.label" class="mx-1" :type="item.type" effect="plain">
       {{ item.label }}
-    </el-tag>
+    </el-tag> -->
   </div>
 </template>
 
@@ -34,5 +39,21 @@ const items = ref<Array<Item>>([
     @apply mb-2;
     --el-tag-bg-color: transparent;
   }
+}
+
+.tags-container {
+  @apply flex flex-wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  @apply p-1 text-xs;
+  display: inline-block;
+  color: cyan;
+  // color: #5ebbb3;
+  border-radius: 3px;
+  border-color: currentColor;
+  border-width: 1px;
+  border-style: solid;
 }
 </style>

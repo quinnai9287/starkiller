@@ -1,3 +1,12 @@
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'warning': (
+      'base': green,
+    ),
+  )
+);
+
+
 $bg--navbar: transparent !default;
 
 $yellow: rgb(245, 230, 99);
