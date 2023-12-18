@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="landing-container">
     <h1 class="massive-title">
       <div ref="massiveTitle" class="massive-title-text-clip">Hey!,</div>
       <span>Shall we tailor <br />something interesting?</span>

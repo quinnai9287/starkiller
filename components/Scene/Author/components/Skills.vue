@@ -34,8 +34,8 @@ const items = ref<Array<Item>>([
 
 <style lang="scss" scoped>
 .skils-wrap {
-  @apply mt-10 max-w-[400px];
-  ::v-deep .el-tag--plain {
+  @apply mt-5 lg:mt-10 max-w-[400px];
+  :deep(.el-tag--plain) {
     @apply mb-2;
     --el-tag-bg-color: transparent;
   }
@@ -55,5 +55,10 @@ const items = ref<Array<Item>>([
   border-color: currentColor;
   border-width: 1px;
   border-style: solid;
+  zoom: 0.8;
+
+  @screen md {
+    zoom: 1;
+  }
 }
 </style>

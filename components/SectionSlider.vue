@@ -56,7 +56,7 @@ const { data, backgrounds } = toRefs(props);
   @apply flex flex-col justify-center items-center w-[100vw] h-[100vh] p-6;
 }
 .slide-content {
-  @apply flex flex-col mb-5 lg:mb-auto w-[90%] lg:w-[70%] lg:h-[65%] relative z-50;
+  @apply flex flex-col mb-5 w-[90%] lg:w-[70%] lg:h-[65%] relative z-50;
 }
 
 .device-box-container {

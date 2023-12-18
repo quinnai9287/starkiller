@@ -1,18 +1,21 @@
+.landing-container{
+  @apply relative w-[90vw] lg:w-[auto] m-auto;
+}
+
 .classname {
     height: 100px;
   }
   
   .massive-title {
-    
+    @apply text-5xl lg:text-7xl;
     margin: 0;
-    font-size: 80px;
     position: relative;
     transform: translateY(-15%);
     text-align: left;
     line-height: 0.75;
     letter-spacing: -4px;
     font-weight: bold;
-    color: #ccc;
+    color: #fff;
   }
   
   .massive-title-text-clip {
@@ -92,9 +95,6 @@
   }
 
   @media screen and (max-width: 768px) {
-    .massive-title {
-      font-size: 60px;
-    }
   
     .massive-title-text-clip {
       font-size: 100px;
@@ -103,13 +103,14 @@
 
   @media screen and (max-width: 480px) {
     .massive-title {
-      font-size: 30px;
       letter-spacing: 0;
     }
   
     .massive-title-text-clip {
-      font-size: 60px;
+      font-size: 80px;
       margin-bottom: 2rem;
+      background:none;
+      color: #fff;
     }
 
     .main-button {

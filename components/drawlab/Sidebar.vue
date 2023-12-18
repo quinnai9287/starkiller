@@ -62,7 +62,7 @@ const isCollapse = ref(false);
   width: 40px;
 }
 
-:deep .el-menu-vertical-demo:not(.el-menu--collapse) {
+:deep(.el-menu-vertical-demo:not(.el-menu--collapse)) {
   width: 30vw;
   height: 100vh;
 }

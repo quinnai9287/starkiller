@@ -4,9 +4,9 @@
       <span>Get your own <br />prototype now!</span>
     </h1>
     <div>
-      <button class="main-button shiney-btn">
+      <nuxt-link class="main-button shiney-btn" to="/drawlab">
         Get Started <el-icon class="icon"><Right /></el-icon>
-      </button>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -15,14 +15,18 @@
 
 <style lang="scss" scoped>
 .side-project-container {
-  position: relative;
+  @apply relative w-[90vw] lg:w-[auto] m-auto;
   z-index: 100;
+  background-repeat: no-repeat;
   background-size: 100% auto;
+
+  @screen lg {
+    background-size: 100% auto;
+  }
 }
 
 .massive-title {
-  @apply mt-0 mb-4;
-  font-size: 80px;
+  @apply mt-0 mb-4 text-5xl lg:text-7xl lg:w-[80vw];
   position: relative;
   transform: translateY(-15%);
   text-align: left;
@@ -30,20 +34,21 @@
   letter-spacing: -4px;
   font-weight: bold;
   color: #000;
-  width: 80vw;
 }
 
+$purple: #673ab7;
+$light-purple: #894ef2;
+$shiney-purple: #9a67f6;
+
 .main-button {
-  @apply py-4 rounded flex items-center justify-center;
-  font-size: 18px;
-  font-weight: 600;
-  border: 1px solid #673ab7;
+  @apply md:py-4 rounded inline-flex items-center justify-center md:w-[188px] lg:font-bold;
+  border: 1px solid $purple;
   cursor: pointer;
-  background-color: #673ab7;
+  font-size: 18px;
+  background-color: $purple;
   transition: all 0.3s ease-in-out;
   outline: none;
   position: relative;
-  width: 188px;
   overflow: hidden;
 
   .icon {
@@ -58,16 +63,16 @@
   }
 }
 
-button.shiney-btn {
-  background: #894ef2;
+.shiney-btn {
+  background: $light-purple;
   color: #fff;
   border: none;
   border-radius: 50px;
-  border: 1px solid #894ef2;
+  border: 1px solid $light-purple;
   transition: 0.4s;
 }
 
-button.shiney-btn:before {
+.shiney-btn:before {
   content: '';
   background-color: rgba(255, 255, 255, 0.5);
   height: 100%;
@@ -81,18 +86,28 @@ button.shiney-btn:before {
   transition: 0.6s;
 }
 
-button.shiney-btn:hover {
-  background: #9a67f6;
+.shiney-btn:hover {
+  background: $shiney-purple;
   color: #fff;
 }
 
-button.shiney-btn:focus,
-button.shiney-btn:active {
-  background: #673ab7;
+.shiney-btn:focus,
+.shiney-btn:active {
+  background: $purple;
   color: #fff;
 }
 
-button.shiney-btn:hover:before {
+.shiney-btn:hover:before {
   left: calc(100% + 20px);
+}
+
+@media screen and (max-width: 480px) {
+  .main-button {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 12px;
+  }
 }
 </style>

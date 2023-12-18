@@ -1,9 +1,9 @@
 <template>
-  <header>
+  <header :class="{ collapsed }">
     <div class="p-2 md:p-2 lg:p-4">
-      <div class="active-text">{{ activePage }}</div>
+      <div class="active-text" @click="collapsed = !collapsed">{{ activePage }}</div>
     </div>
-    <ul class="list">
+    <ul class="list" :class="{ collapsed }">
       <li v-for="nav in props.navigator" :key="nav.label">
         <nuxt-link class="link" :class="{ active: route.path === nav.path }" :to="nav.path">
           {{ nav.label }}
@@ -41,6 +41,7 @@ const props = defineProps<{
 }>();
 
 const route = useRoute();
+const collapsed = ref(false);
 
 const activePage = computed(() => {
   const activeNav = props.navigator.find((nav) => nav.path === `/${String(route.name)}`);

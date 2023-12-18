@@ -29,16 +29,22 @@ const props = defineProps<{
   position: relative;
   overflow: hidden;
   z-index: 2;
-  background-position: center;
-  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: background-position 0.5s linear;
 
   &.parallax {
-    background-position: 0 40%;
+    background-position: center 40%;
   }
 
   .active & {
-    background-position: 0 50% !important;
+    background-position: center 50% !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .section-content {
+    background-size: 100% auto;
   }
 }
 

@@ -2,6 +2,7 @@
   <main>
     <Navigator id="menu" :navigator="navigator" />
     <CanvasAsh />
+    <CanvasSphere />
     <slot />
   </main>
 </template>

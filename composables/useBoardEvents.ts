@@ -5,7 +5,7 @@ export default function (canvasContainer: any) {
     scale: 0.5,
     minScale: 0.1,
     maxScale: 1,
-    zoomSpeed: 0.05,
+    zoomSpeed: 0.1,
   });
 
   const mouse = reactive({
@@ -62,8 +62,10 @@ export default function (canvasContainer: any) {
       }
     }
     if (event.altKey && event.code === 'AltLeft') {
-      canvasContainer.value.style.cursor = 'zoom-in';
-      isAltPressed.value = true;
+      if (canvasContainer.value) {
+        canvasContainer.value.style.cursor = 'zoom-in';
+        isAltPressed.value = true;
+      }
     }
   };
 

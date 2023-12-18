@@ -1,6 +1,6 @@
 <template>
   <div class="experience-wrap">
-    <h3 class="font-bold mb-4">EXPERIENCE</h3>
+    <h3 class="font-bold mb-2 lg:mb-4">EXPERIENCE</h3>
     <el-timeline>
       <el-timeline-item
         v-for="(activity, index) in activities"
@@ -11,7 +11,7 @@
         <el-card class="experience-card" body-class="experience-card-body" :class="{ present: activity.present }">
           <h3 class="title">{{ activity.title }}</h3>
           <h4 class="font-Podkova">{{ activity.company }}</h4>
-          <p class="mt-4">{{ activity.period }}</p>
+          <p class="mt-2 lg:mt-4">{{ activity.period }}</p>
         </el-card>
       </el-timeline-item>
     </el-timeline>
@@ -50,8 +50,13 @@ const activities = [
 </script>
 
 <style lang="scss" scoped>
-.timeline-block {
+.experience-wrap {
+  transform-origin: left center;
+  transform: scale(0.9);
   // color: #fff;
+  @screen md {
+    transform: scale(1);
+  }
 }
 .experience-card {
   background: transparent;
@@ -78,7 +83,12 @@ const activities = [
   }
 }
 
-.experience-card-body {
-  @apply p-4;
+@media screen and (max-width: 480px) {
+  :deep(.el-timeline-item) {
+    padding-bottom: 10px;
+  }
+  :deep(.el-card__body) {
+    padding: 10px;
+  }
 }
 </style>

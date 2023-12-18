@@ -45,8 +45,7 @@
       <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I've accumulated enough development experience to
         create the software applications I've always wanted. Own a software application is every programmer's dream!
-        I'll continue to delve deeper into my favorite field - the intersection of technology with fashion and
-        creativity.
+        I'll continue to delve deeper into my favorite field - technology with fashion and creativity.
       </p>
       <img class="sign" :src="sign" />
     </div>
@@ -59,7 +58,7 @@ import sign from '@/assets/images/sign.png';
 
 <style lang="scss" scoped>
 .intros {
-  @apply p-4 rounded-md text-base max-w-[450px] max-h-[660px] mx-4 leading-5;
+  @apply rounded-md text-base max-w-[90vw] lg:max-w-[450px] max-h-[660px] mx-4 leading-5;
   // border: 1px solid #444;
   p {
     @apply mb-4;

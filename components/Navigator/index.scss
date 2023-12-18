@@ -50,10 +50,14 @@ header {
 
   @media screen and (max-width: 480px) {
     header {
-        @apply top-[15px] left-[15px] w-[75px];
+      @apply top-[15px] left-[15px] w-[75px] min-h-[52px] h-[0];
+      transition: all 0.2s ease-out;
+      &.collapsed{
+        @apply h-auto;
       }
-      .credit-links {
-        @apply mt-auto py-1 flex justify-start;
+    }
+    .credit-links {
+      @apply mt-auto py-1 flex justify-start;
       
         > * {
           cursor: pointer;
@@ -65,12 +69,19 @@ header {
         @apply px-2 py-1 text-xl;
     }
     .list {
-        @apply grid grid-cols-1 divide-y h-full text-xs mb-2;
-        border-top: 1px solid #444;
+        @apply grid grid-cols-1 divide-y h-[0px] text-xs mb-2 overflow-hidden;
+        border-top: 1px solid transparent;
         font-family: 'Podkova', serif;
+        transition: all 0.5s ease-out;
+        
       
         > li {
           @apply py-2 px-3;
+        }
+
+        &.collapsed{
+          @apply h-[100%];
+          border-top: 1px solid #444;
         }
       }
       
