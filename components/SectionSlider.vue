@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full">
     <div class="slide">
-      <div class="slide-inner">
+      <div class="slide-inner" :style="{ height: dynamicHeight }">
         <div class="device-box-container">
           <DeviceBox :backgrounds="backgrounds" />
         </div>
@@ -39,6 +39,7 @@
 </template>
 
 <script setup>
+import useResize from '@/composables/useResize';
 const props = defineProps({
   data: {
     type: Object,
@@ -48,6 +49,7 @@ const props = defineProps({
   },
 });
 
+const { dynamicHeight } = useResize();
 const { data, backgrounds } = toRefs(props);
 </script>
 

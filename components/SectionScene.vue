@@ -1,5 +1,5 @@
 <template>
-  <div class="section-content" :class="{ parallax }" :style="{ backgroundImage: `url(${bg})` }">
+  <div class="section-content" :class="{ parallax }" :style="{ backgroundImage: `url(${bg})`, height: dynamicHeight }">
     <slot />
     <div class="section-label" :data-text="props.label">
       <div class="section-label-text" :data-text="props.label">
@@ -10,17 +10,21 @@
 </template>
 
 <script setup lang="ts">
+import useResize from '@/composables/useResize';
+
 const props = defineProps<{
   label: string;
   bg?: string;
   parallax?: boolean;
 }>();
+
+const { dynamicHeight } = useResize();
 </script>
 
 <style lang="scss">
 .section-content {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   // background-color: #111;
   color: #fff;
   display: flex;
@@ -113,10 +117,13 @@ const props = defineProps<{
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 992px) {
   .section-label {
     width: 200px;
     opacity: 0.5;
+    transform: scale(0.9);
+    transform-origin: top right;
+    right: -25px;
   }
 
   .section-label-text {

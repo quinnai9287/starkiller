@@ -16,7 +16,6 @@ export default function useSphere(canvasRef) {
   // ... other necessary refs
 
   const init = async () => {
-    console.log('init')
     await setScene();
     await setCamera();
     await setObject();
@@ -32,7 +31,7 @@ export default function useSphere(canvasRef) {
 
   const setCamera = async() => {
     camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-    camera.position.z = 15;
+    camera.position.z = WIDTH < 768 ? 20: 15;
     scene.add(camera);
   };
 
@@ -45,7 +44,6 @@ export default function useSphere(canvasRef) {
   };
 
   const setRenderer = async() => {
-    console.log('[setRenderer]')
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(WIDTH, HEIGHT);
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -57,7 +55,7 @@ export default function useSphere(canvasRef) {
     saturn = new THREE.Group();
     saturn.rotation.set(0.4, 0.3, 0);
     console.log('setObject')
-    const map = await loadTexture('http://localhost:3000/2k_eris_fictional.jpg');
+    const map = await loadTexture('/2k_eris_fictional.jpg');
     // const sphereMaterial = new THREE.MeshPhongMaterial({ color: '#887070', shading: THREE.FlatShading });
     const surfaceMaterial = new THREE.MeshBasicMaterial({ 
       map,
@@ -110,6 +108,9 @@ export default function useSphere(canvasRef) {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
+    if(width < 768){
+      camera.position.z = 20;
+    }
   };
 
   const loadTexture = async(url) => {

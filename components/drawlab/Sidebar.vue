@@ -2,7 +2,7 @@ import type { Right } from '@element-plus/icons-vue/dist/types';
 <template>
   <aside class="side-bar">
     <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse">
-      <div class="toggler-container" @click="isCollapse = !isCollapse">
+      <div class="toggler-container" :style="{ height: dynamicHeight }" @click="isCollapse = !isCollapse">
         <div class="toggler" :class="{ 'is-collapse': isCollapse }">
           <el-icon><CaretLeft /></el-icon>
         </div>
@@ -20,6 +20,8 @@ import type { Right } from '@element-plus/icons-vue/dist/types';
 </template>
 
 <script lang="ts" setup>
+import useResize from '@/composables/useResize';
+const { dynamicHeight } = useResize();
 const isCollapse = ref(false);
 </script>
 
@@ -58,12 +60,12 @@ const isCollapse = ref(false);
 
 .el-menu-vertical-demo {
   background-color: #e5e5e5;
-  height: 100vh;
+  height: 100dvh;
   width: 40px;
 }
 
 :deep(.el-menu-vertical-demo:not(.el-menu--collapse)) {
   width: 30vw;
-  height: 100vh;
+  height: 100dvh;
 }
 </style>
