@@ -17,7 +17,7 @@ import CLOUDZET from '@/components/portfolio/tg3d/cloudzet.vue';
 import NOPARTY from '@/components/portfolio/blockcode/nopartyforcaodong.vue';
 
 definePageMeta({
-  layout: 'default',
+  layout: 'portfolio',
 });
 
 const getComponent = (key) => {

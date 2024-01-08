@@ -4,9 +4,9 @@
       <span>Get your own <br />prototype now!</span>
     </h1>
     <div>
-      <nuxt-link class="main-button shiney-btn" to="/drawlab">
+      <button class="main-button shiney-btn disabled" disabled to="/drawlab">
         Get Started <el-icon class="icon"><Right /></el-icon>
-      </nuxt-link>
+      </button>
     </div>
   </div>
 </template>
@@ -56,10 +56,16 @@ $shiney-purple: #9a67f6;
     transition: all 0.3s ease-in-out;
   }
 
-  &:hover {
+  &:hover:not(.disabled),
+  &:hover:not(:disabled) {
     .icon {
       @apply ml-2;
     }
+  }
+
+  &.disabled,
+  &:disabled {
+    @apply opacity-50 cursor-not-allowed;
   }
 }
 
@@ -86,7 +92,8 @@ $shiney-purple: #9a67f6;
   transition: 0.6s;
 }
 
-.shiney-btn:hover {
+.shiney-btn:not(.disabled):hover,
+.shiney-btn:not(:disabled):focus {
   background: $shiney-purple;
   color: #fff;
 }
@@ -97,7 +104,8 @@ $shiney-purple: #9a67f6;
   color: #fff;
 }
 
-.shiney-btn:hover:before {
+.shiney-btn:not(.disabled):hover:before,
+.shiney-btn:not(:disabled):hover:before {
   left: calc(100% + 20px);
 }
 
