@@ -29,7 +29,7 @@
 
 <style lang="scss" scoped>
 .footer {
-  @apply w-full p-8;
+  @apply w-full py-12;
   color: white;
   background-color: #009a9f;
 }

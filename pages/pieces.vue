@@ -22,27 +22,29 @@
     <PiecesScene :align="`start`" auto-content>
       <PiecesCommonCarousel />
       <div class="flex justify-center my-16">
-        <h1 class="mt-1 mb-6 font-Podkova text-5xl font-bold">HOW WE DO IT</h1>
+        <h1 class="mt-1 mb-6 font-Podkova text-5xl font-bold" data-aos="fade-up">HOW WE DO IT</h1>
       </div>
       <PiecesSteps />
     </PiecesScene>
-    <PiecesScene :align="`start`" backgroundColor="#d5ebeb" auto-content>
-      <template #title><h1 class="mt-1 mb-4 font-Podkova text-5xl font-bold">COMMUNITY</h1></template>
-      <template #des><p class="font-semibold">Yes! Designers we hear you!</p></template>
+    <PiecesScene :align="`start`" backgroundColor="#d5ebeb" auto-content data-aos="fade-up">
+      <template #title>
+        <h1 class="mt-1 mb-4 font-Podkova text-5xl font-bold">COMMUNITY</h1>
+      </template>
+      <template #des><p class="font-semibold">Yes, Designers! we hear you!</p></template>
       <div class="flex gap-4 my-8 justify-center mx-auto max-w-[75%]">
-        <div class="basis-1/3">
+        <div class="basis-1/3" data-aos="fade-up">
           <div class="brick">
             <h3 class="font-bold text-2xl">TEMPLATES</h3>
             Pieces template library!
           </div>
         </div>
-        <div class="basis-1/3">
+        <div class="basis-1/3" data-aos="fade-up">
           <div class="brick">
             <h3 class="font-bold text-2xl">STORE</h3>
             Sale your Pieces online!
           </div>
         </div>
-        <div class="basis-1/3">
+        <div class="basis-1/3" data-aos="fade-up">
           <div class="brick">
             <h3 class="font-bold text-2xl">EVENTS</h3>
             Designers! Let's meet up!
@@ -51,8 +53,8 @@
       </div>
     </PiecesScene>
     <PiecesScene>
-      <template #title><h1 class="mt-1 mb-4 font-Podkova text-5xl font-bold">PRICING</h1></template>
-      <template #des><p class="mb-8 font-semibold">BETA RIGHT NOW ALL FREE</p></template>
+      <template #title><h1 class="mt-1 mb-4 font-Podkova text-5xl font-bold" data-aos="fade-up">PRICING</h1></template>
+      <template #des><p class="mb-8 font-semibold" data-aos="fade-up">BETA RIGHT NOW ALL FREE</p></template>
       <PiecesPricing />
     </PiecesScene>
   </div>
@@ -61,6 +63,15 @@
 <script setup>
 definePageMeta({
   layout: 'pieces',
+});
+
+const { $aos } = useNuxtApp();
+onMounted(() => {
+  $aos().init({
+    mirror: true,
+    delay: 500,
+    duration: 1000,
+  });
 });
 </script>
 

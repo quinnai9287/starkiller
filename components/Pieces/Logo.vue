@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.27 151.58">
+    <svg xmlns="http://www.w3.org/2000/svg" :width="width" viewBox="0 0 202.27 151.58">
       <g>
         <polygon :fill="white ? `#fff` : `#009a9f`" points="41.24 41.24 41.24 0 0 41.24 41.24 41.24" />
         <polygon fill="#81cdcd" points="43.72 0 43.72 108.77 98.11 54.39 43.72 0" />
@@ -11,7 +11,11 @@
         />
       </g>
     </svg>
-    <div class="text-sm mt-1 tracking-widest font-Podkova font-bold" :style="{ color: white ? '#fff' : '#000' }">
+    <div
+      v-if="showText"
+      class="text-sm mt-1 tracking-widest font-Podkova font-bold"
+      :style="{ color: white ? '#fff' : '#000' }"
+    >
       PIECES
     </div>
   </div>
@@ -22,6 +26,14 @@ const props = defineProps({
   white: {
     type: Boolean,
     default: false,
+  },
+  width: {
+    type: Number,
+    default: 50,
+  },
+  showText: {
+    type: Boolean,
+    default: true,
   },
 });
 </script>

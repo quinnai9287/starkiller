@@ -1,7 +1,7 @@
 import useCmToPx from '@/composables/useCmToPx';
 import useBoardEvents from '@/composables/useBoardEvents';
 import useRuler from '@/composables/useRuler';
-import SketchRule from 'vue-sketch-ruler';
+// import SketchRule from 'vue-sketch-ruler';
 
 export default function (
   canvasContainer: any,
@@ -13,18 +13,18 @@ export default function (
 ) {
   const svgContent = ref('');
 
-  const sketchRuleData = ref({
-    scale: 2, //658813476562495, //1,
-    startX: 0,
-    startY: 0,
-    lines: {
-      h: [100, 200],
-      v: [100, 200],
-    },
-    thick: 20,
-    isShowRuler: true,
-    isShowReferLine: true,
-  });
+  // const sketchRuleData = ref({
+  //   scale: 2, //658813476562495, //1,
+  //   startX: 0,
+  //   startY: 0,
+  //   lines: {
+  //     h: [100, 200],
+  //     v: [100, 200],
+  //   },
+  //   thick: 20,
+  //   isShowRuler: true,
+  //   isShowReferLine: true,
+  // });
 
   const { cmToPx } = useCmToPx();
 
@@ -55,6 +55,7 @@ export default function (
   };
 
   const drawCanvas = () => {
+    console.log('[drawCanvas]', canvasContainer.value, canvas.value);
     updateSVGContent();
     // Create an SVG image
     const img = new Image();
@@ -70,22 +71,22 @@ export default function (
 
           drawGrid(ctx);
 
+          //  Draw the line
+          ctx.beginPath();
+          ctx.moveTo(mouse.offsetX, mouse.offsetY); // Start point
+          ctx.lineTo(mouse.offsetX, mouse.offsetY + cmToPx(data.size['BL(背長)'])); // End point
+          ctx.stroke(); // Draw the line
+
           // Draw the line
-          //   ctx.beginPath();
-          //   ctx.moveTo(mouse.offsetX, mouse.offsetY); // Start point
-          //   ctx.lineTo(mouse.offsetX, mouse.offsetY + cmToPx(data.size['BL(背長)'])); // End point
-          //   ctx.stroke(); // Draw the line
+          const w = Number((cmToPx(data.size['B(胸圍)']) / 2 + data.aux['鬆份']).toFixed(2));
+          ctx.beginPath();
+          ctx.moveTo(mouse.offsetX, mouse.offsetY + cmToPx(data.size['BL(背長)'])); // Start point
+          ctx.lineTo(mouse.offsetX + w, mouse.offsetY + cmToPx(data.size['BL(背長)'])); // End point
+          ctx.stroke(); // Draw the line
 
-          //   // Draw the line
-          //   const w = Number((cmToPx(data.size['B(胸圍)']) / 2 + data.aux['鬆份']).toFixed(2));
-          //   ctx.beginPath();
-          //   ctx.moveTo(mouse.offsetX, mouse.offsetY + cmToPx(data.size['BL(背長)'])); // Start point
-          //   ctx.lineTo(mouse.offsetX + w, mouse.offsetY + cmToPx(data.size['BL(背長)'])); // End point
-          //   ctx.stroke(); // Draw the line
-
-          //   // Draw the image
-          //   ctx.drawImage(img, mouse.offsetX, mouse.offsetY); // Adjust the position as needed
-          //   ctx.restore();
+          // Draw the image
+          ctx.drawImage(img, mouse.offsetX, mouse.offsetY); // Adjust the position as needed
+          ctx.restore();
         }
       }
     };
@@ -103,7 +104,7 @@ export default function (
     handleMouseMove,
     handleMouseUp,
     drawCanvas,
-    SketchRule,
-    sketchRuleData,
+    // SketchRule,
+    // sketchRuleData,
   };
 }

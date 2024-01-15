@@ -1,19 +1,16 @@
 <template>
-  <div class="scale-controller-container">
+  <div class="scale-controller-container mx-2">
     <el-row>
-      <el-button @click="emit('zoom-out')">
-        <el-icon><ZoomOut /></el-icon>
-      </el-button>
+      <el-button size="small" :icon="ZoomOut" circle @click="emit('zoom-out')" />
 
-      <div class="scale-text">{{ (zoom.scale * 100).toFixed() }}%</div>
-      <el-button @click="emit('zoom-in')">
-        <el-icon><ZoomIn /></el-icon>
-      </el-button>
+      <div class="scale-text text-sm mx-2">{{ (zoom.scale * 100).toFixed() }}%</div>
+      <el-button size="small" :icon="ZoomIn" circle @click="emit('zoom-in')" />
     </el-row>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ZoomOut, ZoomIn } from '@element-plus/icons-vue';
 interface Zoom {
   scale: number;
 }

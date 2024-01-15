@@ -1,7 +1,6 @@
 <template>
-  <div class="dashbord-layout">
-    <Dock />
-    <div class="w-full h-[100vh] pl-[64px]">
+  <div class="workspace-layout">
+    <div class="w-full h-fulldashbord-layout ml-[64px] pt-[40px] relative">
       <slot />
     </div>
   </div>
@@ -9,13 +8,13 @@
 
 <script setup lang="ts">
 import Dock from '@/components/drawlab/Dock.vue';
+import ToolBar from '@/components/drawlab/ToolBar.vue';
 </script>
 
 <style lang="scss" scoped>
-.dashbord-layout {
-  @apply flex w-full;
+.workspace-layout {
+  @apply flex w-fit h-fit;
   background-color: #fff;
-  min-height: 100vh;
   background-image: url('/groovepaper.png');
 }
 </style>

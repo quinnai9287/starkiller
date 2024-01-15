@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto w-9/12">
-    <div v-for="step in steps" :key="step.title" class="step-block flex gap-4">
+    <div v-for="step in steps" :key="step.title" class="step-block flex gap-4" data-aos="fade-up">
       <div class="basis-1/2">
         <el-image
           :src="`
@@ -13,7 +13,7 @@
           </template>
         </el-image>
       </div>
-      <div class="basis-1/2">
+      <div class="basis-1/2 flex flex-col justify-center">
         <h2 class="mt-1 mb-6 font-Podkova text-4xl font-bold">{{ step.title }}</h2>
         <p>{{ step.des }}</p>
       </div>
@@ -24,7 +24,7 @@
 <script lang="ts" setup>
 const steps = reactive([
   {
-    title: 'Input Measurements',
+    title: 'Input measurements',
     des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.',
   },
   {

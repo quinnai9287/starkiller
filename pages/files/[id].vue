@@ -1,26 +1,25 @@
 <template>
   <div>
-    <Sidebar>
-      <template #title> Japanese Culture Style Prototype 文化式女裝原型 </template>
-      <template #controller>
-        <SizeInput v-model:size="data.size" v-model:aux="data.aux" />
-      </template>
-    </Sidebar>
     <DrawlabBoard ref="drawlabBoardRef" :data="data" />
   </div>
 </template>
 
 <script setup>
-import Sidebar from '@/components/drawlab/Sidebar.vue';
-import SizeInput from '@/components/drawlab/SizeInput.vue';
-
+import DrawlabBoard from '@/components/drawlab/Board/index.vue';
+const route = useRoute();
 definePageMeta({
-  layout: 'lab',
+  layout: 'workspace',
 });
 
 const drawlabBoardRef = ref(null);
 
 const data = reactive({
+  file: {
+    id: route.params.id,
+    create_at: '2024-01-11T00:00:00.000Z',
+    name: 'My Pieces.pcs',
+    template: 'Japanese Culture Style Prototype',
+  },
   size: {
     'B(胸圍)': 82,
     'BL(背長)': 37,

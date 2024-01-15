@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
   // devtools: { enabled: true },
-  css: ['@/assets/vendor-style.css', '@/assets/main.scss'],
+  css: ['@/assets/vendor-style.css', '@/assets/main.scss', 'aos/dist/aos.css'],
   postcss: {
     plugins: {
       tailwindcss: {},

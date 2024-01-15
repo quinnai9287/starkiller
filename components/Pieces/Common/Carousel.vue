@@ -1,7 +1,7 @@
 <template>
   <el-carousel :interval="4000" type="card" height="300px" :loop="false" :initial-index="1" :autoplay="false">
     <el-carousel-item v-for="item in 4" :key="item">
-      <h3 text="2xl" justify="center">{{ item }}</h3>
+      <div text="2xl" justify="center">{{ item }}</div>
     </el-carousel-item>
   </el-carousel>
 </template>
