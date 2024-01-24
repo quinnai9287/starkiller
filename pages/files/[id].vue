@@ -1,34 +1,23 @@
 <template>
   <div>
-    <DrawlabBoard ref="drawlabBoardRef" :data="data" />
+    <DrawlabBoard ref="drawlabBoardRef" :data="fetchedData" />
   </div>
 </template>
 
 <script setup>
+import { usePcsProjectsStore } from '@/stores/usePcsProjects.js';
 import DrawlabBoard from '@/components/drawlab/Board/index.vue';
 const route = useRoute();
 definePageMeta({
   layout: 'workspace',
 });
+const store = usePcsProjectsStore();
+await store.fetchDataById({ id: route.params.id });
+const fetchedData = computed(() => {
+  return store.getFetchedData;
+});
 
 const drawlabBoardRef = ref(null);
-
-const data = reactive({
-  file: {
-    id: route.params.id,
-    create_at: '2024-01-11T00:00:00.000Z',
-    name: 'My Pieces.pcs',
-    template: 'Japanese Culture Style Prototype',
-  },
-  size: {
-    'B(胸圍)': 82,
-    'BL(背長)': 37,
-    'S(袖長)': 54,
-  },
-  aux: {
-    鬆份: 5,
-  },
-});
 </script>
 <style lang="scss" scoped>
 .draw-lab {

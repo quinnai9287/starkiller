@@ -10,7 +10,7 @@
       </div>
       <div class="flex grow p-2 text-xs font-bold w-full">
         <div v-if="data.name" class="file-name">{{ data.name }}</div>
-        <div v-if="data.size" class="file-size">{{ data.size }}</div>
+        <!-- <div v-if="data.size" class="file-size">{{ data.size }}</div> -->
       </div>
     </template>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="workspace-layout">
-    <div class="w-full h-fulldashbord-layout ml-[64px] pt-[40px] relative">
+    <div class="w-full h-full dashbord-layout ml-[64px] pt-[40px] relative">
       <slot />
     </div>
   </div>
@@ -13,7 +13,7 @@ import ToolBar from '@/components/drawlab/ToolBar.vue';
 
 <style lang="scss" scoped>
 .workspace-layout {
-  @apply flex w-fit h-fit;
+  @apply flex w-fit h-fit min-h-[100vh] min-w-full;
   background-color: #fff;
   background-image: url('/groovepaper.png');
 }

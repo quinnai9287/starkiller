@@ -6,25 +6,27 @@
       </div>
       <strong>Recent Files</strong>
       <div class="files-container">
-        <FileCard v-for="file in files" :key="file.id" :data="file" />
+        <FileCard v-for="(file, idx) in files" :key="idx" :data="file" @click="openFile(file.id)" />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { usePcsProjectsStore } from '@/stores/usePcsProjects.js';
 import FileCard from '@/components/Pieces/Common/FileCard.vue';
 
 definePageMeta({
   layout: 'lab',
 });
 
-const files = reactive([
-  {
-    id: 1,
-    name: 'Japanese Culture Prototype',
-  },
-]);
+const router = useRouter();
+const projectsStore = usePcsProjectsStore();
+const files = projectsStore.allProjects;
+
+const openFile = (id: string) => {
+  router.push(`/files/${id}`);
+};
 </script>
 
 <style lang="scss" scoped>

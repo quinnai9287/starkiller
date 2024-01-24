@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full relative">
     <Dock :data="dockData" @open="openSidePanel" />
-    <ToolBar :data="data.file">
+    <ToolBar :data="data">
       <template #scale-controller>
         <ScaleController
           :zoom="zoom"

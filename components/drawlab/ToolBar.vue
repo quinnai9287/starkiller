@@ -3,7 +3,7 @@
     <el-menu ellipsis class="el-menu-popper-demo h-full px-3 flex items-center" mode="horizontal" :popper-offset="16">
       <div class="text-sm px-2">{{ data.name }}</div>
       <el-divider direction="vertical" />
-      <div class="text-sm px-2">{{ data.template }}</div>
+      <div class="text-sm px-2">{{ data.template.name }}</div>
 
       <div class="ml-auto flex items-center">
         <slot name="scale-controller"></slot>
