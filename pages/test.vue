@@ -2,11 +2,8 @@
   <div class="w-full h-full relative">
     <Dock :data="dockData" @open="openSidePanel" />
     <div class="p-10">
-      <TestComp2 />
+      <Minesweeper />
     </div>
-    <ol>
-      <li>間格等距離繪畫</li>
-    </ol>
   </div>
 </template>
 
